@@ -1,0 +1,9 @@
+package day6.문자반복출력하기
+
+class Solution {
+    fun solution(my_string: String, n: Int) = my_string.map { it.toString().repeat(n) }.joinToString("")
+}
+
+fun main() {
+
+}
