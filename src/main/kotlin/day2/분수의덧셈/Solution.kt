@@ -14,7 +14,28 @@ class Solution {
         }
         return intArrayOf(dividend, divider)
     }
+
 }
+
+/**
+ * chatGPT 의 방법
+ * class Solution {
+ *     fun solution(numer1: Int, denom1: Int, numer2: Int, denom2: Int): Pair<Int, Int> {
+ *         val numerator = numer1 * denom2 + numer2 * denom1
+ *         val denominator = denom1 * denom2
+ *         return simplifyFraction(numerator, denominator)
+ *     }
+ *
+ *     fun simplifyFraction(numerator: Int, denominator: Int): Pair<Int, Int> {
+ *         val gcd = numerator.gcd(denominator)
+ *         val simplifiedNumerator = numerator / gcd
+ *         val simplifiedDenominator = denominator / gcd
+ *         return Pair(simplifiedNumerator, simplifiedDenominator)
+ *     }
+ *
+ *     fun Int.gcd(other: Int): Int = if (other == 0) this else other.gcd(this % other)
+ * }
+ */
 
 fun main() {
     arrayOf(
