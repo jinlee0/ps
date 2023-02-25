@@ -7,18 +7,11 @@ class Solution {
         "right" -> 1
         "left" -> -1
         else -> throw IllegalArgumentException()
-    }.let {
-        val list = numbers.toList()
-        Collections.rotate(list, it)
-        list
-    }
+    }.let {numbers.rotated(it)}
 }
 
-//fun main() {
-//    val numbers = intArrayOf(1, 2, 3).toList()
-//    Collections.rotate(numbers, 1)
-//    println(numbers)
-//    Collections.rotate(numbers, -1)
-//    println(numbers)
-//
-//}
+fun IntArray.rotated(distance: Int): List<Int> {
+    val list = this.toList()
+    Collections.rotate(list, distance)
+    return list
+}
