@@ -11,4 +11,5 @@ class Solution {
 
 fun main() {
     Solution().solution("hello")
+    intArrayOf().average()
 }
