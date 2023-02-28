@@ -1,7 +1,12 @@
 package _0222.특정문자제거하기
 
 class Solution {
-    fun solution(my_string: String, letter: String) = my_string.filterNot { it == letter.first() }
+//    fun solution(my_string: String, letter: String) = my_string.filterNot { it == letter.first() }
+    fun solution(my_string: String, letter: String) = letter.first().let { c -> my_string.filterNot { it==c } }
+
+    // 제일 느림
+//    fun solution(my_string: String, letter: String) = my_string.replace(letter, "")
+
 }
 
 fun main() {
