@@ -1,14 +1,17 @@
 package _04._0420.zero.p2;
-import java.util.*;
 class Solution {
     public int[] solution(int[] a, int[] b) {
         int idx = 0;
-        int maxIdx = Math.max(a.length, b.length) - 1;
 
-        Deque<Integer> list = new LinkedList<>();
+        int[] big, small;
+        if(a.length > b.length) {
+            big = a; small = b;
+        } else {
+            big = b; small = a;
+        }
 
         int acc = 0;
-        while(idx <= maxIdx) {
+        while(idx < big.length) {
             int sum = acc;
             sum += get(a, idx);
             sum += get(b, idx);
@@ -18,16 +21,21 @@ class Solution {
             } else {
                 acc = 0;
             }
-            list.addFirst(sum);
+            big[big.length-1-idx] = sum;
             idx++;
         }
 
-        if(acc > 0) list.addFirst(1);
+        int[] result;
+        if(acc > 0) {
+            result = new int[big.length + 1];
+            result[0] = 1;
+        } else {
+            return big;
+        }
 
-        int[] result = new int[list.size()];
-        Iterator<Integer> iterator = list.iterator();
-        for(int i = 0; i < result.length; i++)
-            result[i] = iterator.next();
+        for(int i = 0; i < big.length; i++) {
+            result[i+1] = big[i];
+        }
         return result;
     }
 
